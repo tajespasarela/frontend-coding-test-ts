@@ -87,10 +87,13 @@ const excludeFormats: BookFormat[] = ['image/jpeg']
 
 const downloadLinks = computed(() =>
   Object.entries(props.book.formats)
-    .filter(([format]) => excludeFormats.indexOf(format) === -1)
+    .filter(([format]) => excludeFormats.indexOf(format as BookFormat) === -1)
     .map(([format, link]) => ({
       format: format
-        .replace(/(text\/|application\/|;|charset=)/g, '')
+        .replace(/(text\/|application\/|;|charset=|xml|zip)/g, '')
+        .replace('x-mobipocket-ebook', 'mobi')
+        .replace('plain', 'text')
+        .replace('octet-stream', 'html zip')
         .replace('+', ' '),
       link,
     })),
