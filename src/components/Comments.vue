@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { Book } from '../types/Models'
-import { useComments } from '../composables/useComments'
+import useComments from '../composables/useComments'
 import Button from './Button.vue'
 
 const props = defineProps<{ book: Book }>()

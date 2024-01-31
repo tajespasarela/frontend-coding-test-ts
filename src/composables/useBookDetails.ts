@@ -12,6 +12,7 @@ const useBookDetails = (id: string) => {
         .then((res) => res.data ?? {})
         .then(mapResponse)
         .then((res) => res.books[0]),
+    staleTime: 1000 * 60 * 5,
   })
 
   return { book, isLoading }

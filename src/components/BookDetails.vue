@@ -1,7 +1,7 @@
 <template>
   <article
     data-testid="book-list-item"
-    class="mx-auto flex w-full cursor-pointer flex-col overflow-hidden rounded-xl bg-gray-200 shadow-md transition duration-300 ease-in-out sm:hover:scale-105 sm:hover:shadow-xl"
+    class="mx-auto flex w-full flex-col overflow-hidden rounded-xl bg-gray-200 shadow-md"
   >
     <div
       class="flex flex-wrap justify-center gap-4 bg-white p-4 sm:justify-between"
