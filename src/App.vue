@@ -1,9 +1,12 @@
 <template>
   <div
-    class="min-w-full min-h-screen font-sans text-sm antialiased bg-gray-100 text-center"
+    class="min-h-screen min-w-full bg-gray-100 text-center font-sans text-sm antialiased"
   >
     <router-view />
   </div>
+  <ToastNotifications />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ToastNotifications from './components/ToastNotifications.vue'
+</script>

@@ -1,7 +1,7 @@
 <template>
   <article
     data-testid="book-list-item"
-    class="-bg-gradient-to-10 mx-auto flex max-w-md cursor-pointer flex-col overflow-hidden rounded-xl from-gray-200 from-60% via-white via-60% to-white shadow-md transition duration-300 ease-in-out sm:hover:scale-105 sm:hover:shadow-xl"
+    class="mx-auto flex max-w-md cursor-pointer flex-col overflow-hidden rounded-xl from-gray-200 from-60% via-white via-60% to-white shadow-md transition duration-300 ease-in-out -bg-gradient-to-10 sm:hover:scale-105 sm:hover:shadow-xl"
     v-on="listeners"
     v-on:click="onBookClick"
   >
@@ -48,7 +48,7 @@
         class="flex items-center gap-1"
         active
         v-bind:href="downloadLink"
-        v-on:click.stop
+        v-on:click.stop="showToast('Download started')"
         ><span class="text-lg">&#x2193;</span>Download</Button
       >
     </div>
@@ -62,6 +62,7 @@ import { type Book } from '../types/Models'
 import { useSelectionDetection } from '../composables/useSelectionDetection'
 import Button from './Button.vue'
 import BookImage from './BookImage.vue'
+import useToast from '../composables/useToast'
 
 const props = defineProps<{ book: Book }>()
 
@@ -75,6 +76,8 @@ const downloadLink = computed(
     props.book.formats['application/epub+zip'] ??
     props.book.formats['text/plain; charset=utf-8'],
 )
+
+const { showToast } = useToast()
 
 function onBookClick() {
   if (!isSelecting.value) {

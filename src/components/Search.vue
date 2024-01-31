@@ -35,11 +35,14 @@
 import { nextTick, ref } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import useSearch from '../composables/useSearch'
+import useToast from '../composables/useToast'
 
 const { query } = useSearch()
 
 const isSearchVisible = ref(false)
 const inputRef = ref<HTMLInputElement | null>(null)
+const { showToast } = useToast()
+let cancelPreviousToast: (() => void) | null = null
 
 async function toggleSearch() {
   isSearchVisible.value = !isSearchVisible.value
@@ -61,6 +64,8 @@ function onBlur() {
 
 function setQuery(e: Event) {
   query.value = (e.target as HTMLInputElement).value
+  cancelPreviousToast?.()
+  cancelPreviousToast = showToast(`Searching for "${query.value}"`)
 }
 
 const onDebouncedInput = useDebounceFn(setQuery, 300)

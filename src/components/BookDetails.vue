@@ -56,6 +56,7 @@
             link
             target="_blank"
             v-bind:href="link"
+            v-on:click="showToast('Download started')"
             ><span class="text-lg">&#x2193;</span>{{ format }}</Button
           >
         </li>
@@ -76,6 +77,7 @@ import BookImage from './BookImage.vue'
 import Comments from './Comments.vue'
 import Rating from './Rating.vue'
 import Button from './Button.vue'
+import useToast from '../composables/useToast'
 
 const props = defineProps<{ book: Book }>()
 
@@ -94,10 +96,5 @@ const downloadLinks = computed(() =>
     })),
 )
 
-function downloadBook() {
-  const format =
-    props.book.formats['application/epub+zip'] ??
-    props.book.formats['text/plain; charset=utf-8']
-  window.location.href = format
-}
+const { showToast } = useToast()
 </script>

@@ -54,14 +54,16 @@ const { data, isLoading } = useBookList({ query, page })
 </script>
 
 <style scoped lang="scss">
-.list-move,
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
+.list {
+  &-move,
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s ease;
+  }
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 }
 </style>
