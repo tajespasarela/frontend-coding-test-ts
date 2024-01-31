@@ -1,6 +1,6 @@
 <template>
   <article
-    data-testid="book-list-item"
+    data-testid="book-details"
     class="mx-auto flex w-full flex-col overflow-hidden rounded-xl bg-gray-200 shadow-md"
   >
     <div

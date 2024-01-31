@@ -9,6 +9,7 @@
         >☆☆☆☆☆</span
       >
       <div
+      data-testid="rating-stars-filled"
         class="absolute inset-0 overflow-hidden whitespace-nowrap text-xl text-yellow-400"
         v-bind:style="{ width: computedWidth }"
       >

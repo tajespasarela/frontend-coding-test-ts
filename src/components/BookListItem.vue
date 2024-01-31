@@ -6,7 +6,10 @@
     v-on:click="onBookClick"
   >
     <div class="p-4 text-left">
-      <h2 class="line-clamp-3 text-lg font-semibold text-gray-800">
+      <h2
+        class="line-clamp-3 text-lg font-semibold text-gray-800"
+        data-testid="item-title"
+      >
         <RouterLink ref="linkRef" v-bind:to="detailsPageUrl">{{
           book.title
         }}</RouterLink>

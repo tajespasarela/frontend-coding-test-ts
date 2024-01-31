@@ -30,6 +30,11 @@
     <h2 class="text-2xl font-bold">No results found</h2>
     <p class="text-lg">Try another query</p>
   </div>
+
+  <div v-if="isLoading" class="flex flex-col items-center gap-4">
+    <span class="h-12 w-12 text-gray-500">⏳</span>
+    <p class="text-lg">Loading...</p>
+  </div>
 </template>
 
 <script setup lang="ts">
